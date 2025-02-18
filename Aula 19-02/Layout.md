@@ -1,7 +1,3 @@
-Ótima escolha! O Bootstrap facilita a criação de **layouts responsivos**, e quando aliado às **boas práticas de UX**, garante interfaces organizadas, intuitivas e acessíveis.  
-
----
-
 # 📌 **1. Conceito do Grid System do Bootstrap**
 O **sistema de grid do Bootstrap** é baseado em **12 colunas**, o que permite dividir a tela de forma flexível e responsiva.  
 
