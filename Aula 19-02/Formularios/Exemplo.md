@@ -1,6 +1,3 @@
-Ótima ideia! Vamos criar um **formulário de contato responsivo** utilizando **Bootstrap** e seguindo as boas práticas de UX.  
-
----
 
 ## 🎯 **Objetivo:**  
 Criar um **formulário intuitivo, acessível e responsivo**, garantindo que o usuário tenha uma boa experiência ao preenchê-lo.
