@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulário de Contato</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Animação para o alerta de sucesso */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Animação para os campos */
+        .input-focus {
+            transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        
+        /* Erros e Sucesso nos campos */
+        .is-invalid {
+            border-color: #dc3545 !important;
+            box-shadow: 0 0 5px rgba(220, 53, 69, 0.5) !important;
+        }
+        .is-valid {
+            border-color: #28a745 !important;
+            box-shadow: 0 0 5px rgba(40, 167, 69, 0.5) !important;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Container principal -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            
+            <!-- Título do Formulário -->
+            <h2 class="text-center mb-4">Entre em Contato</h2>
+
+            <!-- Mensagem de sucesso (oculta inicialmente) -->
+            <div id="success-message" class="alert alert-success fade-in d-none text-center">
+                ✅ Sua mensagem foi enviada com sucesso! 🎉
+            </div>
+
+            <!-- Formulário -->
+            <form id="contact-form" novalidate>
+                <div class="mb-3">
+                    <label class="form-label">Nome</label>
+                    <input type="text" class="form-control input-focus" id="name" placeholder="Seu nome" required>
+                    <div class="invalid-feedback">O nome deve ter pelo menos 3 caracteres.</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">E-mail</label>
+                    <input type="email" class="form-control input-focus" id="email" placeholder="seuemail@exemplo.com" required>
+                    <div class="invalid-feedback">Digite um e-mail válido.</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mensagem</label>
+                    <textarea class="form-control input-focus" id="message" rows="4" placeholder="Digite sua mensagem" required></textarea>
+                    <div class="invalid-feedback">A mensagem deve ter pelo menos 10 caracteres.</div>
+                </div>
+                
+                <!-- Botão de envio -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg">Enviar Mensagem</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script de Validação e Feedback -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contact-form");
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const messageInput = document.getElementById("message");
+    const successMessage = document.getElementById("success-message");
+
+    // Função para validar campos em tempo real
+    function validateInput(input, minLength, type = "text") {
+        if (type === "email") {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(input.value.trim());
+        }
+        return input.value.trim().length >= minLength;
+    }
+
+    // Adiciona eventos de validação aos campos
+    nameInput.addEventListener("input", function () {
+        if (validateInput(nameInput, 3)) {
+            nameInput.classList.add("is-valid");
+            nameInput.classList.remove("is-invalid");
+        } else {
+            nameInput.classList.add("is-invalid");
+            nameInput.classList.remove("is-valid");
+        }
+    });
+
+    emailInput.addEventListener("input", function () {
+        if (validateInput(emailInput, 3, "email")) {
+            emailInput.classList.add("is-valid");
+            emailInput.classList.remove("is-invalid");
+        } else {
+            emailInput.classList.add("is-invalid");
+            emailInput.classList.remove("is-valid");
+        }
+    });
+
+    messageInput.addEventListener("input", function () {
+        if (validateInput(messageInput, 10)) {
+            messageInput.classList.add("is-valid");
+            messageInput.classList.remove("is-invalid");
+        } else {
+            messageInput.classList.add("is-invalid");
+            messageInput.classList.remove("is-valid");
+        }
+    });
+
+    // Validação final no envio do formulário
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Evita recarregar a página
+
+        let isValid = true;
+
+        if (!validateInput(nameInput, 3)) {
+            nameInput.classList.add("is-invalid");
+            isValid = false;
+        }
+        if (!validateInput(emailInput, 3, "email")) {
+            emailInput.classList.add("is-invalid");
+            isValid = false;
+        }
+        if (!validateInput(messageInput, 10)) {
+            messageInput.classList.add("is-invalid");
+            isValid = false;
+        }
+
+        if (isValid) {
+            // Exibe a mensagem de sucesso com animação
+            successMessage.classList.remove("d-none");
+            successMessage.classList.add("show");
+
+            // Limpa os campos do formulário
+            form.reset();
+            nameInput.classList.remove("is-valid", "is-invalid");
+            emailInput.classList.remove("is-valid", "is-invalid");
+            messageInput.classList.remove("is-valid", "is-invalid");
+
+            // Esconde a mensagem após 4 segundos
+            setTimeout(() => {
+                successMessage.classList.remove("show");
+                setTimeout(() => {
+                    successMessage.classList.add("d-none");
+                }, 500);
+            }, 4000);
+        }
+    });
+});
+</script>
+
+</body>
+</html>

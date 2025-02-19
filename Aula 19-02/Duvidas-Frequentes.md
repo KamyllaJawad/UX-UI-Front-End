@@ -266,15 +266,41 @@ Os formulários do Bootstrap são estilizados por padrão, mas podemos melhorá-
 
 ---
 
-## 🚀 **Resumo das 10 respostas:**
-1️⃣ **O `.container` centraliza o layout e melhora a organização.**  
-2️⃣ **`.row` cria linhas, e `.col-` define colunas dentro dessas linhas.**  
-3️⃣ **Para responsividade, usamos os breakpoints (`.col-sm-`, `.col-md-`, etc.).**  
-4️⃣ **Os gutters (`.g-*`, `.gx-*`, `.gy-*`) controlam o espaçamento entre colunas.**  
-5️⃣ **Para colunas de altura igual, usamos `.h-100` ou `align-items-stretch`.**  
-6️⃣ **Centralizar elementos** → Use `text-center`, `mx-auto`, `justify-content-center`, etc.  
-7️⃣ **Criar um menu fixo** → Use `navbar` com `fixed-top`.  
-8️⃣ **Galeria de imagens responsiva** → Use `img-fluid` e o grid.  
-9️⃣ **Botões personalizados** → Use `btn-primary`, `rounded-pill`, `btn-lg`, etc.  
-🔟 **Formulários estilizados** → Use `form-control`, `g-3` para espaçamento e organização.  
+### **1️⃣1️⃣ Por que escolher 'container' em vez de 'container-fluid'?**
 
+A escolha entre **`container`** e **`container-fluid`** depende do comportamento desejado para o layout do seu site. Vamos entender as diferenças:  
+
+## 🔹 **`container` (fixo)**
+- Define **margens automáticas** e mantém o conteúdo **dentro de uma largura máxima**.
+- A largura varia de acordo com o **breakpoint** da tela, mas nunca ocupa **100%** da largura.
+- Ótimo para **layouts centralizados e mais legíveis**, especialmente em telas grandes.  
+
+📌 **Exemplo de larguras em diferentes telas:**
+| Tela | Largura do `container` |
+|------|--------------------|
+| Extra pequena (≤576px) | 100% (como `container-fluid`) |
+| Pequena (≥576px) | 540px |
+| Média (≥768px) | 720px |
+| Grande (≥992px) | 960px |
+| Extra grande (≥1200px) | 1140px |
+| Extra extra grande (≥1400px) | 1320px |
+
+**Usar `container` faz sentido quando queremos um design mais controlado e simétrico.**  
+
+## 🔹 **`container-fluid` (100% de largura)**
+- **Ocupa 100% da largura da tela**, independentemente do tamanho.
+- Ideal para **layouts full-width**, como cabeçalhos, rodapés ou seções que precisam se adaptar completamente ao viewport.
+
+📌 **Exemplo de uso de `container-fluid`:**
+```html
+<div class="container-fluid bg-light p-4">
+    <h2 class="text-center">Seção de Largura Total</h2>
+</div>
+```
+Esse layout se estenderá **de ponta a ponta** na tela.
+
+**Usar `container-fluid` é útil para seções que precisam ocupar toda a largura da tela, sem margens laterais.**
+
+🔹 **Sendo assim...**  
+- Use **`container`** para **layouts fixos e organizados**.  
+- Use **`container-fluid`** para **seções que precisam ocupar toda a largura da tela**.
