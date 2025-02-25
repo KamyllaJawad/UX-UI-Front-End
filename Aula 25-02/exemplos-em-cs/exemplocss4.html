@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animações em Camadas</title>
+  <style>
+    .nuvem {
+      width: 100px;
+      height: 60px;
+      background-color: rgb(201, 184, 36);
+      border-radius: 50px;
+      position: relative;
+      animation: mover 10s infinite linear;
+    }
+    .nuvem::before, .nuvem::after {
+      content: '';
+      position: absolute;
+      background-color: rgb(213, 16, 16);
+      border-radius: 50%;
+    }
+    .nuvem::before {
+      width: 50px;
+      height: 50px;
+      top: -20px;
+      left: 10px;
+    }
+    .nuvem::after {
+      width: 70px;
+      height: 70px;
+      top: -30px;
+      right: 10px;
+    }
+    @keyframes mover {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="nuvem"></div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animação com GSAP</title>
+  <style>
+    #circulo {
+      width: 50px;
+      height: 50px;
+      background-color: #ff7f50;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div id="circulo"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script>
+    // Anima o círculo para a posição x: 300px em 2 segundos
+    gsap.to('#circulo', { x: 300, duration: 2, repeat: -1, yoyo: false });
+  </script>
+</body>
+</html>

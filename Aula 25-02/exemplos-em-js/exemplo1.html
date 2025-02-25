@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animação com JavaScript</title>
+  <style>
+    #caixa {
+      width: 50px;
+      height: 50px;
+      background-color: #ff4757;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div id="caixa"></div>
+
+  <script>
+    const caixa = document.getElementById('caixa');
+    let posicao = 0;
+
+    function animar() {
+      posicao += 2; // Move a caixa 2 pixels para a direita
+      caixa.style.left = posicao + 'px';
+
+      // Continua a animação até que a caixa saia da tela
+      if (posicao < window.innerWidth - 50) {
+        requestAnimationFrame(animar);
+      }
+    }
+
+    // Inicia a animação
+    animar();
+  </script>
+</body>
+</html>

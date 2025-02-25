@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animação com Eventos</title>
+  <style>
+    .card {
+      width: 150px;
+      height: 150px;
+      background-color: #2ed573;
+      transition: transform 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="card"></div>
+
+  <script>
+    const card = document.getElementById('card');
+
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'scale(1.2)';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'scale(1)';
+    });
+  </script>
+</body>
+</html>

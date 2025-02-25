@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animação com Transformações</title>
+  <style>
+    #elemento {
+      width: 100px;
+      height: 100px;
+      background-color: #70a1ff;
+      transition: transform 1s ease;
+    }
+  </style>
+</head>
+<body>
+  <div id="elemento">
+    <button>a</button>
+  </div>
+
+  <script>
+    const elemento = document.getElementById('elemento');
+    let rotacao = 0;
+
+    elemento.addEventListener('click', () => {
+      rotacao += 90; // Gira 90 graus a cada clique
+      elemento.style.transform = `rotate(${rotacao}deg)`;
+    });
+  </script>
+</body>
+</html>
