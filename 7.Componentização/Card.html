@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Componentes</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <meu-card titulo="Notícia 1" descricao="Essa é a primeira notícia"></meu-card>
+        <meu-card titulo="Notícia 2" descricao="Essa é a segunda notícia"></meu-card>
+    </div>
+
+    <script>
+        const app = Vue.createApp({});
+
+        app.component("meu-card", {
+            props: ["titulo", "descricao"],
+            template: `
+                <div style="border: 1px solid black; padding: 10px; margin: 10px;">
+                    <h3>{{ titulo }}</h3>
+                    <p>{{ descricao }}</p>
+                </div>
+            `
+        });
+
+        app.mount("#app");
+    </script>
+
+</body>
+</html>

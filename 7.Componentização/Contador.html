@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Primeiro Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <h2>Contador: {{ contador }}</h2>
+        <button @click="contador++">Aumentar</button>
+        <button @click="contador--">Diminuir</button>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    contador: 0
+                };
+            }
+        });
+
+        app.mount("#app");
+    </script>
+
+</body>
+</html>

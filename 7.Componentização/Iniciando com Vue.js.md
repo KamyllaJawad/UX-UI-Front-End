@@ -1,4 +1,3 @@
-Ótimo! Vamos aprender **Vue.js** de forma didática e prática.  
 
 ## 🔰 **Passo 1: O que é Vue.js?**  
 O **Vue.js** é um framework **fácil e leve** para criar interfaces web usando componentes. Ele permite que você **separe HTML, CSS e JavaScript de maneira organizada**, tornando o código mais limpo e reutilizável.  
@@ -117,5 +116,3 @@ Vamos organizar nosso código usando **componentes**!
 - Criamos um **componente chamado `<meu-card>`**.  
 - Usamos `props` para passar **dados dinâmicos** para os componentes.  
 - **Reutilizamos** o mesmo componente várias vezes no HTML!  
-
----

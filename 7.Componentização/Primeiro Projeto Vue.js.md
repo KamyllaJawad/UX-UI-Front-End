@@ -1,7 +1,3 @@
-Ótimo! Vamos aprender **passo a passo** como instalar o Vue.js e criar projetos maiores com ele. Vou explicar **cada detalhe**, incluindo **o que são todas as pastas e arquivos gerados**.  
-
----
-
 # ✅ **1. Instalando o Vue.js (Método Profissional)**
 Para criar um projeto Vue **estruturado e profissional**, usamos o **Vue CLI** (Command Line Interface).  
 
